@@ -7,6 +7,7 @@
       <h1>OneDream Fotballskole</h1>
       <h2>- som verktøy for integrering</h2>
     </hgroup>
+    <button> Registrer deg! </button>
   </div>
 
 </template>
@@ -26,16 +27,17 @@ export default {
   text-align: center;
   color: rgba(255,255,255,0.9);
   margin-left: -20px;
-  margin-right: -20px;
-  margin-top: -15px;
 }
 
 .header-image {
-  transform: rotate(0deg);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  width: 100%;
-  filter: brightness(80%);}
+  width: 120%;
+  filter: brightness(80%);
+  overflow: hidden;
+  margin-left: -20px;
+  margin-top: -15px;
+}
 
 hgroup {
   position: absolute;
@@ -61,7 +63,16 @@ h2 {
   position: absolute;
   top: 25px;
   left: 35px;
+}
 
+button {
+  top: 85%;
+  left: 50%;
+  background-color: #de175b;
+  color: white;
+  position: absolute;
+  padding: 5px 10px;
+  transform: translate(-50%, -50%)
 }
 
 </style>
