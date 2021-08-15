@@ -1,13 +1,19 @@
 <template>
 
   <div class="header">
+    
     <img class="header-image" alt="fotball bane" src="../assets/header.jpg" />
     <img class="logo" alt="logo" src="../assets/logo.png" />
+
     <hgroup>
       <h1>OneDream Fotballskole</h1>
       <h2>- som verktøy for integrering</h2>
     </hgroup>
-    <button> Registrer deg! </button>
+
+    <!-- <router-link to="/register">  -->
+      <button> Registrer deg! </button>
+    <!-- </router-link> -->
+
   </div>
 
 </template>
@@ -27,16 +33,15 @@ export default {
   text-align: center;
   color: rgba(255,255,255,0.9);
   margin-left: -20px;
+  overflow: hidden;
+
 }
 
 .header-image {
   -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  width: 120%;
+  transform: scaleX(-1.4);
+  width: 100%;
   filter: brightness(80%);
-  overflow: hidden;
-  margin-left: -20px;
-  margin-top: -15px;
 }
 
 hgroup {

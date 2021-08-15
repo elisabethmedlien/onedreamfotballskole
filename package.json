@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --dest dist",
-    "build": "vue-cli-service build --dest dist",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "newbuild": "SSR=1 vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build:client": "vue-cli-service build --dest dist/client",
+    "build:server": "SSR=1 vue-cli-service build --dest dist/server",
+    "lint:client": "vue-cli-service lint",
+    "serve:client": "vue-cli-service serve"
   },
   "dependencies": {
+    "@vue/server-renderer": "^3.2.2",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "mdue": "^0.1.4",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
+    "vue": "^3.1.5",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-alpha.1",
+    "webpack-manifest-plugin": "^4.0.2",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -30,8 +40,7 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "plugin:vue/vue3-essential"
+      "eslint:recommended"
     ],
     "parserOptions": {
       "parser": "babel-eslint"

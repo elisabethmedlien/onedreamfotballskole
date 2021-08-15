@@ -4,12 +4,12 @@
   <footer>
 
     <h2>Kontakt oss</h2>
-    <p> <Phone/> +47 952 31 298 </p> 
+    <!-- <p> <Phone/> +47 952 31 298 </p> 
     <p> <Mail /> onedream@onedream.no </p> 
 
     <h3> Følg oss på sosiale medier</h3>
     <p> <Facebook/> onedreamfotballskole </p> 
-    <p> <Instagram /> onedream.no </p> 
+    <p> <Instagram /> onedream.no </p>  -->
 
   </footer>
   
@@ -17,15 +17,15 @@
 
 
 <script>
-import { Facebook, Instagram, Phone, Mail  } from 'mdue';
+// import { Facebook, Instagram, Phone, Mail  } from 'mdue';
 
 export default {
   name:'Footer',
   components: {
-    Phone,
-    Mail,
-    Facebook,
-    Instagram 
+    // Phone,
+    // Mail,
+    // Facebook,
+    // Instagram 
   }
 
 }
@@ -35,7 +35,6 @@ export default {
 <style scoped>
   footer {
     padding: 15px;
-    width: 100%;
     bottom: 0;
     position: static;
     background-color: #262726;

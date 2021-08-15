@@ -17,7 +17,11 @@ import Sponsors from '@/components/Sponsors.vue'
 import Footer from '@/components/Footer.vue'
 
 
+
+
 export default {
+
+
   name: 'Home',
   components: {
     Header,
