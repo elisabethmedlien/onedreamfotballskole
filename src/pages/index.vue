@@ -10,6 +10,10 @@
 
 <script>
 export default {
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
   head: {
     title: 'Home page',
     meta: [
@@ -28,13 +32,15 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+        integrity: 'sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p',
+        crossorigin: 'anonymous'
       }
     ]
   
-  },
-  loading: {
-    color: 'blue',
-    height: '5px'
   }
 }
 </script>

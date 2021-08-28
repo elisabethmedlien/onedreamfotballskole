@@ -1,5 +1,8 @@
+const { resolve } = require('path');
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  srcDir: resolve('./src'),
   head: {
     title: 'onedreamfotballskole',
     htmlAttrs: {

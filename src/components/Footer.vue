@@ -4,12 +4,12 @@
   <footer>
 
     <h2>Kontakt oss</h2>
-    <!-- <p> <Phone/> +47 952 31 298 </p> 
+    <p> <Phone /> +47 952 31 298 </p> 
     <p> <Mail /> onedream@onedream.no </p> 
 
     <h3> Følg oss på sosiale medier</h3>
-    <p> <Facebook/> onedreamfotballskole </p> 
-    <p> <Instagram /> onedream.no </p>  -->
+    <p> <Facebook /> onedreamfotballskole </p> 
+    <p> <Instagram /> onedream.no </p>
 
   </footer>
   
@@ -17,15 +17,19 @@
 
 
 <script>
-// import { Facebook, Instagram, Phone, Mail  } from 'mdue';
+
+import Facebook from './icons/Facebook.vue';
+import Instagram from './icons/Instagram.vue';
+import Mail from './icons/Mail.vue';
+import Phone from './icons/Phone.vue';
 
 export default {
   name:'Footer',
   components: {
-    // Phone,
-    // Mail,
-    // Facebook,
-    // Instagram 
+    Facebook,
+    Instagram,
+    Mail,
+    Phone,
   }
 
 }
@@ -61,6 +65,31 @@ export default {
     color: #de175b;
     font-size: 16px;
     vertical-align: middle;
+  }
+
+
+  .cls-1 {
+    fill:none;
+    stroke:#000;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:2px;
+  }
+
+
+  .icons svg {
+    width: 45px !important;
+  }
+
+</style>
+
+<style>
+
+  svg {
+    width: 20px !important;
+    height: auto;
+    fill: #db2965;
+    margin-right: 5px;
   }
 
 </style>
