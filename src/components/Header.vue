@@ -29,6 +29,12 @@
 
 }
 
+h2 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
 .header-image {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1.4);
