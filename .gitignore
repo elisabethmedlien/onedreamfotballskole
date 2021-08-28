@@ -8,8 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 
 
-.firebase/
-/.github
+.firebase
+.github
 
 # Runtime data
 pids
