@@ -43,18 +43,6 @@ hgroup {
   transform: translate(-50%, -50%);
 }
 
-h1 {
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 24px;
-}
-
-h2 {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 26px;
-}
-
 .logo {
   width: 150px;
   position: absolute;
@@ -65,10 +53,7 @@ h2 {
 button {
   top: 85%;
   left: 50%;
-  background-color: #de175b;
-  color: white;
   position: absolute;
-  padding: 5px 10px;
   transform: translate(-50%, -50%)
 }
 

@@ -3,6 +3,8 @@
 
   <footer>
 
+    <div>
+
     <h2>Kontakt oss</h2>
     <p> <Phone /> +47 952 31 298 </p> 
     <p> <Mail /> onedream@onedream.no </p> 
@@ -10,6 +12,12 @@
     <h3> Følg oss på sosiale medier</h3>
     <p> <Facebook /> onedreamfotballskole </p> 
     <p> <Instagram /> onedream.no </p>
+
+    </div>
+
+    <div class="copyright">
+      <p> &copy; <span>{{new Date().getFullYear()}} </span> OneDream Fotballskole </p>
+    </div>
 
   </footer>
   
@@ -30,6 +38,12 @@ export default {
     Instagram,
     Mail,
     Phone,
+  },
+  data () {
+    return {
+
+
+    }
   }
 
 }
@@ -81,15 +95,10 @@ export default {
     width: 45px !important;
   }
 
-</style>
-
-<style>
-
-  svg {
-    width: 20px !important;
-    height: auto;
-    fill: #db2965;
-    margin-right: 5px;
+  .copyright {
+    border-top: 0.2px solid #ffffff20;
+    margin-top: 15px;
+    padding-top: 15px;
   }
 
 </style>

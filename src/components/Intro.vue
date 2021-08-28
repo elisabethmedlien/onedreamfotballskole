@@ -1,7 +1,7 @@
 <template>
   <div class="intro">
     <h2> Hva Vi Gjør<span>.</span> </h2>
-    <hr/>
+    <hr />
     <p> 
       OneDream Fotballskole skal gi barn en minneverdig opplevelse. 
       Et tilbud i kampen mot å jevne ut sosiale ulikheter, og for å skape en fremtidig 

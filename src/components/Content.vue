@@ -67,14 +67,4 @@ export default {
 h2 {
   font-size: 16px;
 }
-
-p {
-  font-size: 11px ;
-}
-
-a {
-  text-decoration: none;
-  color:#de185b;
-}
-
 </style>
