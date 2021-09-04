@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  background-color: #b1b1b1;
+  background-color: #c3c0c0a3;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,6 +29,7 @@ h2 {
 
 p {
   font-size: 11px ;
+  line-height: 18px;
 }
 
 .button-container {

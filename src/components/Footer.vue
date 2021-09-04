@@ -6,7 +6,7 @@
     <div>
 
     <h2>Kontakt oss</h2>
-    <p> <Phone /> +47 952 31 298 </p> 
+    <p><Phone /> <a href="tel:+4795231298">+47 952 31 298 </a> </p>
     <p> <Mail /> onedream@onedream.no </p> 
 
     <h3> Følg oss på sosiale medier</h3>
@@ -57,6 +57,12 @@ export default {
     position: static;
     background-color: #262726;
     color: white;
+  }
+
+  footer a {
+    color: white;
+    border-bottom: 0.2px solid rgba(255,255,255,0.5);
+    padding-bottom: 2px;
   }
 
   h2 {

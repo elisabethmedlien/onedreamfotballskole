@@ -1,14 +1,12 @@
 <template>
   <div class="register">
     <header>
-      <img class="logo" alt="logo" src="~/assets/logo.png" />
+      <Logo />
     </header>
 
     <nav class="breadcrumb">
       <ul class="breadcrumb">
-        <NuxtLink to="/">
-          <li><strong><a href="#">Hjem</a></strong></li> 
-        </NuxtLink>
+        <li><strong><NuxtLink to="/">Hjem</NuxtLink></strong></li> 
         <span> > </span>
         <li>Register</li>
       </ul>
@@ -19,8 +17,6 @@
       <h2>Påmeldingsskjema for Onedream Fotballskole </h2>
     </hgroup>
 
-
-
     <form id="registerForm">
 
       <div class="form-heading">
@@ -30,26 +26,26 @@
       <div class="form-group">
         <div class="form-field">
           <label for="attendant_first_name">Fornavn *</label>
-          <input @focus="activate" @blur="deactivate" id="attendant_first_name" type="text" name="attendant_first_name" class="form-input attendant_first_name" validate required>
-          <span class="helper-text"></span>
+          <input id="attendant_first_name" type="text" name="attendant_first_name" class="form-input attendant_first_name" validate required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
         <div class="form-field">
           <label for="attendant_last_name">Etternavn *</label>
-          <input @focus="activate" @blur="deactivate" id="attendant_last_name" type="text" name="attendant_last_name" class="form-input attendant_last_name validate required" required>
-          <span class="helper-text"></span>
+          <input id="attendant_last_name" type="text" name="attendant_last_name" class="form-input attendant_last_name" required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
       </div>
       <div class="form-group">
         <div class="form-field attendant-age-field">
           <label for="attendant_age">Alderskull *</label>
-          <input @focus="activate" @blur="deactivate" id="attendant_age" type="number" name="attendant_age" class="form-input attendant_age validate required" required >
-          <span class="helper-text"></span>
+          <input id="attendant_age" type="number" inputmode="numeric" name="attendant_age" class="form-input attendant_age" required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
         <div class="form-group-radio">
     
           <label class="form-field-radio">
             <span class="radio__input">
-              <input type="radio" id="attendant_gender_female" name="attendant_gender" value="jente" checked />
+              <input id="attendant_gender_female" type="radio" name="attendant_gender" value="jente" checked />
               <span class="radio__control"></span>
             </span>
             <span class="radio__label">Jente</span>
@@ -57,7 +53,7 @@
     
           <label class="form-field-radio">
             <span class="radio__input">
-              <input type="radio" id="attendant_gender_male" name="attendant_gender" value="gutt" />
+              <input id="attendant_gender_male" type="radio" name="attendant_gender" value="gutt" />
               <span class="radio__control"></span>
             </span>
             <span class="radio__label">Gutt</span>
@@ -72,25 +68,25 @@
       <div class="form-group">
         <div class="form-field">
           <label for="guardian_first_name">Fornavn *</label>
-          <input @focus="activate" @blur="deactivate" id="guardian_first_name" type="text" name="guardian_first_name" class="form-input validate required" required >
-          <span class="helper-text"></span>
+          <input id="guardian_first_name" type="text" name="guardian_first_name" class="form-input" required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
         <div class="form-field">
           <label for="guardian_last_name">Etternavn *</label>
-          <input @focus="activate" @blur="deactivate" id="guardian_last_name" type="text" name="guardian_last_name" class="form-input validate required" required >
-          <span class="helper-text"></span>
+          <input id="guardian_last_name" type="text" name="guardian_last_name" class="form-input" required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
       </div>
       <div class="form-group">
         <div class="form-field">
           <label for="guardian_email">Email</label>
-          <input @focus="activate" @blur="deactivate" id="guardian_email" type="email" name="guardian_email" class="form-input validate" >
-          <span class="helper-text"></span>
+          <input id="guardian_email" type="email" name="guardian_email" class="form-input" @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
         <div class="form-field">
           <label for="guardian_phone">Tlf *</label>
-          <input @focus="activate" @blur="deactivate" id="guardian_phone" type="number" name="guardian_phone" class="form-input validate required" required >
-          <span class="helper-text"></span>
+          <input id="guardian_phone" type="tel" name="guardian_phone" class="form-input" required @focus="activate" @blur="deactivate">
+          <span class="helper-text error"></span>
         </div>
       </div>
       <div class="form-group">
@@ -98,13 +94,18 @@
           <label class="message-label" for="message" style="margin-bottom: 25px;">Melding</label>
           <span class="helper-text" style="margin-bottom: 25px;">Allergier, medisiner og annen nødvendig informasjon.</span>
 
-          <textarea id="message" name="message" class="validate" rows="1"></textarea>
-          <span class="helper-text"></span>
+          <textarea id="message" name="message" rows="1"></textarea>
+          <span class="helper-text error"></span>
         </div>
       </div>
-      <div><span class="helper-text" id="submit-error"></span></div>
+
+      <div class="form-field-check">
+        <input id="permission" name="permission" type="checkbox" />
+        <label for="permission">Jeg godkjenner avfotografering av deltakeren under fotballskolen.</label>
+      </div>
+
       <div class="button-container">
-        <button type="submit" class="button cta" id="submitButton">Send inn</button>
+        <button id="submitButton" type="submit" class="button cta" @click="submitForm">Send inn</button>
       </div>
 
     </form>
@@ -114,44 +115,203 @@
 
 
 <script>
+import Logo from '../components/Logo.vue';
 
 import Footer from '../components/Footer.vue';
 
   export default {
     name: 'Register',
     components: {
-      Footer
-
+      Footer,
+      Logo
     },
+
+  
     data() {
+
       return {
 
 
-        activate(event) {
-          const formField = document.getElementById(event.target.id); 
-          formField.parentElement.classList.add("is-active");
+
+            // switch (entry[0]) {
+            //   case "attendant_first_name":
+            //   case "attendant_last_name": 
+            //   case "guardian_first_name":
+            //   case "guardian_last_name":
+            //     console.log(entry[0])
+            //     console.log(this.isRequired());
+                
+            //     break;
+              // case "attendant_age":
+              //   break;
+              // case "guardian_phone":
+              //   break;
+              // case "guardian_email":
+              //   break;
+              // case "message":
+              //   break;
+            
+
+
+
+            // console.log(entry[0]+ ': '+ entry[1]);
           
-          if (!formField.parentElement.classList.value.includes("is-completed")){
-            formField.parentElement.classList.add("is-completed");
-          }
-        },
 
-        deactivate(event) {
-          const formField = document.getElementById(event.target.id); 
-          formField.parentElement.classList.remove("is-active");
+          // const formData = new FormData();
+          // console.log(formData.entries(), f.entries())
 
-          if (formField.value === "") {
-            return formField.parentElement.classList.remove("is-completed");
-          }
-        },
+          // formData.append("entry.319811942", f.get('attendant_first_name'));
+          // formData.append("entry.1492493618", f.get('attendant_last_name'));
+          // formData.append("entry.2062468631", f.get('attendant_age'));
+          // formData.append("entry.1754952157", f.get('attendant_gender'));
+          // formData.append("entry.1117801700", f.get('guardian_last_name') + ", " + f.get('guardian_first_name'));
+          // formData.append("entry.1000720745", f.get('guardian_phone'));
+          // formData.append("entry.532607403" ,f.get('guardian_email'));
+          // formData.append("entry.244621789", f.get('message'));
 
-        inputIsCompleted(input) {
-          if (input.value !== ""){
-            input.parentElement.classList.add("is-completed");
-          } 
-        },
+          // const testurl = 'https://docs.google.com/forms/d/1XU-DbafvYGCYbWduEIHAioTq3j4X8h_GFf1BMGQc7bI/formResponse';
+
+          // fetch(testurl, {
+          //   method: "POST",
+          //   cache: "no-cache",
+          //   mode: "no-cors",
+          //   redirect: "follow",
+          //   body: formData,
+          //   headers: {
+          //     'Content-Type': 'text',
+          // },
+          // })
+          // .then(response => {
+          //   console.log(response); 
+          // })
+          // .catch(error => console.log(error) );
+      
+        
       }
     }, 
+
+    methods: {
+
+      isRequired(id) {
+        return document.getElementById(id).hasAttribute('required');
+      },
+
+      isEmpty(value) {
+        return value === "";
+      },
+
+      doValidation(id){
+        return id !== "attendant_gender";
+      },
+
+      validName(name) {
+        const re = /^([a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+)$/;
+        return re.test(name);
+      },
+
+      validEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      },
+
+      validPhoneNumber(number) {
+        const re = /^([0-9]{8})$/;
+        return re.test(number);
+      },
+
+      validAge(age) {
+        const re = /^([0-9]{4})$/;
+        return re.test(age);
+      },
+
+      errorMessage(id, string) {
+        const element =document.getElementById(id).parentNode.lastChild;
+        element.innerHTML = string;
+        window.location.href = '#registerForm';
+      },
+
+      activate(event) {
+        const formField = document.getElementById(event.target.id); 
+        formField.parentElement.classList.add("is-active");
+        
+        if (!formField.parentElement.classList.value.includes("is-completed")){
+          formField.parentElement.classList.add("is-completed");
+        }
+      },
+
+      deactivate(event) {
+        const formField = document.getElementById(event.target.id); 
+        formField.parentElement.classList.remove("is-active");
+
+        if (formField.value === "") {
+          return formField.parentElement.classList.remove("is-completed");
+        }
+      },
+
+      inputIsCompleted(input) {
+        if (input.value !== "") {
+          input.parentElement.classList.add("is-completed");
+        } 
+      },
+
+      checkSwitch(id, value) {
+        console.log(id);
+        switch (id) {
+          case "attendant_first_name":
+          case "attendant_last_name": 
+          case "guardian_first_name":
+          case "guardian_last_name":
+            if (!this.validName(value)) {
+              this.errorMessage(id, "navn ikke godkjent")
+            }
+            break;
+          case "attendant_age":
+            if (!this.validAge(value)) {
+              this.errorMessage(id, "må være 4 sifre")
+            }
+            break;
+          case "guardian_phone":
+            if (!this.validPhoneNumber(value)) {
+              this.errorMessage(id, "telefonnummer må være 8 sifre")
+            }
+            break;
+          case "guardian_email":
+            if (!this.validEmail(value)) {
+              this.errorMessage(id, "Email ikke godkjent")
+            }
+            break;
+          case "message":
+            break;
+        }
+
+      },
+
+      submitForm(e) {
+        e.preventDefault();
+
+        const registerForm = document.getElementById("registerForm");
+        const formData = new FormData(registerForm);
+
+        for (const entry of formData.entries()) {
+
+          if (this.doValidation(entry[0])) {
+
+            if (this.isRequired(entry[0]) && this.isEmpty(entry[1])) {
+          
+              this.errorMessage(entry[0], "Feltet kan ikke være tomt");
+
+            } else if (!this.isRequired && !this.isEmpty(entry[1])) {
+
+              this.errorMessage(entry[0], "Feltet er ikke tomt, men må valideres");
+              this.checkSwitch(entry[0], entry[1]);
+
+            } else {
+                this.checkSwitch(entry[0], entry[1]);
+            }
+          }
+        }
+      }
+    },
   }
     
 </script>
@@ -161,18 +321,27 @@ import Footer from '../components/Footer.vue';
 <style scoped>
 
 
+.form-field-check {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-field-check input {
+  width: auto !important;
+  align-self: left;
+  justify-self: left;
+}
+
+.form-field-check label {
+  transform: translateY(0) !important;
+  transition: none;
+  margin-left: 15px;
+}
 
 header {
   display: block;
   background-color: #262726;
   padding: 3px 0;
-}
-
-.logo {
-  width: 150px;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 0;
 }
 
 nav ul li{
@@ -200,10 +369,10 @@ h2 {
   line-height: 20px;
 }
 
-
 #registerForm {
     margin: 25px 15px;
 }
+
 .p-1 {
   padding: 5%;
   padding-bottom: 7%;
@@ -215,6 +384,8 @@ h2 {
 
 form {
   margin-top: 45px;
+  padding: 10px 15px;
+  background-color: #e4e3e3f2;
 }
 
 form small {
@@ -228,7 +399,7 @@ form p {
 form label {
   color: black;
   display: block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 form label:not([class="attendant_age"]) {
@@ -355,7 +526,7 @@ form .form-group-radio .form-field-radio .radio__input input {
 }
 
 form .form-group-radio .form-field-radio .radio__input input:checked + .radio__control {
-  background: radial-gradient(#26a69a 50%, rgba(255, 0, 0, 0) 51%);
+  background: radial-gradient(#262726 50%, rgba(255, 0, 0, 0) 51%);
 }
 
 form input:not([type="submit"]), form textarea {
@@ -419,7 +590,6 @@ form div.form-heading:not(:first-of-type) {
   margin-top: 30px;
 }
 
-
 #registerForm input:-webkit-autofill,
 #registerForm input:-webkit-autofill:hover,
 #registerForm input:-webkit-autofill:focus,
@@ -452,11 +622,12 @@ form div.form-heading:not(:first-of-type) {
   position: relative;
   min-height: 18px;
   display: block;
-  font-size: 12px;
+  font-size: 9px;
+  padding-top: 2px;
 }
 
 .helper-text.error {
-  color: red;
+  color: #9a1006;
 }
 
 form .form-message .helper-text {

@@ -3,7 +3,7 @@
   <div class="header">
     
     <img class="header-image" alt="fotball bane" src="~/assets/header.jpg" />
-    <img class="logo" alt="logo" src="~/assets/logo.png" />
+    <Logo />
 
     <hgroup>
       <h1>OneDream Fotballskole</h1>
@@ -18,6 +18,19 @@
 
 </template>
 
+<script>
+
+import Logo from "./Logo.vue";
+
+export default {
+  name: "Header",
+  components: {
+    Logo
+  }
+}
+
+</script>
+
 <style scoped>
 
 .header {
@@ -26,7 +39,6 @@
   color: rgba(255,255,255,0.9);
   margin-left: -20px;
   overflow: hidden;
-
 }
 
 h2 {
@@ -47,13 +59,6 @@ hgroup {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.logo {
-  width: 150px;
-  position: absolute;
-  top: 25px;
-  left: 35px;
 }
 
 button {

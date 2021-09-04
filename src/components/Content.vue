@@ -60,7 +60,7 @@ export default {
 
 .box {
   padding: 15px;
-  background-color: #c1c0c0f2;
+  background-color: #e4e3e3f2;
   margin: 5px 0;
 }
 
