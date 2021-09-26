@@ -257,7 +257,7 @@ import Footer from '../components/Footer.vue';
 
       },
 
-      showDialog(bool) { const show = bool ? document.getElementById("confirmationDialog").style.display = "block" : document.getElementById("confirmationDialog").style.display = "none"; return show },
+      showDialog(bool) { const show = bool ? document.getElementById("confirmationDialog").style.display = "flex" : document.getElementById("confirmationDialog").style.display = "none"; return show },
 
       submitForm(event){
         event.preventDefault();
@@ -627,7 +627,7 @@ form .form-message .helper-text {
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0.6);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
