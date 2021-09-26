@@ -4,13 +4,7 @@
       <Logo />
     </header>
 
-    <nav class="breadcrumb">
-      <ul class="breadcrumb">
-        <li><strong><NuxtLink to="/">Hjem</NuxtLink></strong></li> 
-        <span> > </span>
-        <li>Register</li>
-      </ul>
-    </nav>
+    <Breadcrumb />
 
     <hgroup>
       <h1>Meld deg på!</h1>
@@ -85,7 +79,7 @@
         </div>
         <div class="form-field">
           <label for="guardian_phone">Tlf *</label>
-          <input id="guardian_phone" type="tel" name="guardian_phone" class="form-input" required @focus="activate" @blur="deactivate">
+          <input id="guardian_phone" type="tel" name="guardian_phone" class="form-input" maxlength="8" required @focus="activate" @blur="deactivate">
           <span class="helper-text error"></span>
         </div>
       </div>
@@ -110,18 +104,31 @@
 
     </form>
     <Footer />
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Registrering sendt!</p>
+    </div>
+
   </div>
+  </div>
+
 </template>
 
 
 <script>
-import Logo from '../components/Logo.vue';
 
+import Logo from '../components/Logo.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 import Footer from '../components/Footer.vue';
 
   export default {
     name: 'Register',
     components: {
+      Breadcrumb,
       Footer,
       Logo
     },
@@ -129,104 +136,37 @@ import Footer from '../components/Footer.vue';
   
     data() {
 
-      return {
-
-
-
-            // switch (entry[0]) {
-            //   case "attendant_first_name":
-            //   case "attendant_last_name": 
-            //   case "guardian_first_name":
-            //   case "guardian_last_name":
-            //     console.log(entry[0])
-            //     console.log(this.isRequired());
-                
-            //     break;
-              // case "attendant_age":
-              //   break;
-              // case "guardian_phone":
-              //   break;
-              // case "guardian_email":
-              //   break;
-              // case "message":
-              //   break;
-            
-
-
-
-            // console.log(entry[0]+ ': '+ entry[1]);
-          
-
-          // const formData = new FormData();
-          // console.log(formData.entries(), f.entries())
-
-          // formData.append("entry.319811942", f.get('attendant_first_name'));
-          // formData.append("entry.1492493618", f.get('attendant_last_name'));
-          // formData.append("entry.2062468631", f.get('attendant_age'));
-          // formData.append("entry.1754952157", f.get('attendant_gender'));
-          // formData.append("entry.1117801700", f.get('guardian_last_name') + ", " + f.get('guardian_first_name'));
-          // formData.append("entry.1000720745", f.get('guardian_phone'));
-          // formData.append("entry.532607403" ,f.get('guardian_email'));
-          // formData.append("entry.244621789", f.get('message'));
-
-          // const testurl = 'https://docs.google.com/forms/d/1XU-DbafvYGCYbWduEIHAioTq3j4X8h_GFf1BMGQc7bI/formResponse';
-
-          // fetch(testurl, {
-          //   method: "POST",
-          //   cache: "no-cache",
-          //   mode: "no-cors",
-          //   redirect: "follow",
-          //   body: formData,
-          //   headers: {
-          //     'Content-Type': 'text',
-          // },
-          // })
-          // .then(response => {
-          //   console.log(response); 
-          // })
-          // .catch(error => console.log(error) );
-      
-        
-      }
+      return { }
     }, 
 
     methods: {
 
-      isRequired(id) {
-        return document.getElementById(id).hasAttribute('required');
-      },
+      isRequired(id) { return document.getElementById(id).hasAttribute('required') },
 
-      isEmpty(value) {
-        return value === "";
-      },
+      isEmpty(value) { return value === "" },
 
-      doValidation(id){
-        return id !== "attendant_gender";
-      },
+      doValidation(id) { return id !== "attendant_gender" },
 
-      validName(name) {
-        const re = /^([a-zA-Z\u00C0-\u017F]+,\s[a-zA-Z\u00C0-\u017F]+)$/;
-        return re.test(name);
-      },
+      hasNumber(string) { return /[0-9]$/.test(string) },
 
-      validEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-      },
+      hasSpecialChar(string) { return /[-[\]{}()*+!<>=:?.\\^$|#\s,"%&@/]$/.test(string) },
+      
+      hasEmailFormat(email) { return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email) },
 
-      validPhoneNumber(number) {
-        const re = /^([0-9]{8})$/;
-        return re.test(number);
-      },
+      has8Digits(number) { return /^([0-9]{8})$/.test(number) },
 
-      validAge(age) {
-        const re = /^([0-9]{4})$/;
-        return re.test(age);
-      },
+      has4Digits(age) { return /^([0-9]{4})$/.test(age)},
+
+      getAge(yearBorn) { return new Date().getFullYear() - yearBorn },
+
+      isTooYoung(age, min) { return age <= min },
+
+      isTooOld(age, max) { return age >= max },
+
+      removeErrorMessage(id) { document.getElementById(id).parentNode.lastChild.innerHTML = "" },
 
       errorMessage(id, string) {
-        const element =document.getElementById(id).parentNode.lastChild;
-        element.innerHTML = string;
+        document.getElementById(id).parentNode.lastChild.innerHTML = string;
         window.location.href = '#registerForm';
       },
 
@@ -234,85 +174,132 @@ import Footer from '../components/Footer.vue';
         const formField = document.getElementById(event.target.id); 
         formField.parentElement.classList.add("is-active");
         
-        if (!formField.parentElement.classList.value.includes("is-completed")){
-          formField.parentElement.classList.add("is-completed");
-        }
+        if (!formField.parentElement.classList.value.includes("is-completed")){ formField.parentElement.classList.add("is-completed")}
       },
 
       deactivate(event) {
         const formField = document.getElementById(event.target.id); 
         formField.parentElement.classList.remove("is-active");
 
-        if (formField.value === "") {
-          return formField.parentElement.classList.remove("is-completed");
-        }
+        if (formField.value === "") { return formField.parentElement.classList.remove("is-completed")}
       },
 
-      inputIsCompleted(input) {
-        if (input.value !== "") {
-          input.parentElement.classList.add("is-completed");
-        } 
-      },
+      inputIsCompleted(input) { if (input.value !== "") { input.parentElement.classList.add("is-completed")} },
 
-      checkSwitch(id, value) {
-        console.log(id);
+      validateFields(id, value) {
+
+        let valid = true;
+
         switch (id) {
           case "attendant_first_name":
           case "attendant_last_name": 
           case "guardian_first_name":
           case "guardian_last_name":
-            if (!this.validName(value)) {
-              this.errorMessage(id, "navn ikke godkjent")
-            }
+
+            if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false }
+            else if (this.hasNumber(value)) { this.errorMessage(id, "tall i navn"); valid=false } 
+            else if (this.hasSpecialChar(value)) { this.errorMessage(id, "spesielle karakterer"); valid=false} 
+            else { this.removeErrorMessage(id)}
             break;
+
           case "attendant_age":
-            if (!this.validAge(value)) {
-              this.errorMessage(id, "må være 4 sifre")
-            }
+
+            if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false }
+            else if (!this.has4Digits(value)) { this.errorMessage(id, "må være 4 sifre"); valid=false}
+            else if (this.isTooYoung(this.getAge(value), 4)) { this.errorMessage(id, "Deltakeren er for ung til å delta"); valid=false}
+            else if (this.isTooOld(this.getAge(value), 20)) { this.errorMessage(id, "Deltakeren er for gammel til å delta"); valid=false }
+            else { this.removeErrorMessage(id)}
             break;
+
           case "guardian_phone":
-            if (!this.validPhoneNumber(value)) {
-              this.errorMessage(id, "telefonnummer må være 8 sifre")
-            }
+
+            if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false}
+            else if (!this.has8Digits(value)) { this.errorMessage(id, "telefonnummer må være 8 sifre"); valid=false} 
+            else { this.removeErrorMessage(id);}
             break;
+
           case "guardian_email":
-            if (!this.validEmail(value)) {
-              this.errorMessage(id, "Email ikke godkjent")
+            if (!this.isRequired(id) && !this.isEmpty(value)) { 
+              if (!this.hasEmailFormat(value)) { this.errorMessage(id, "Email ikke godkjent"); valid=false } 
+              else { this.removeErrorMessage(id) }
             }
+            else { this.removeErrorMessage(id) }
             break;
+
           case "message":
             break;
         }
 
+        return valid;
       },
 
-      submitForm(e) {
-        e.preventDefault();
+      checkForm(data) {
 
-        const registerForm = document.getElementById("registerForm");
-        const formData = new FormData(registerForm);
+        let valid = true;
 
-        for (const entry of formData.entries()) {
+        for (const entry of data.entries()) {
 
           if (this.doValidation(entry[0])) {
 
-            if (this.isRequired(entry[0]) && this.isEmpty(entry[1])) {
-          
-              this.errorMessage(entry[0], "Feltet kan ikke være tomt");
-
-            } else if (!this.isRequired && !this.isEmpty(entry[1])) {
-
-              this.errorMessage(entry[0], "Feltet er ikke tomt, men må valideres");
-              this.checkSwitch(entry[0], entry[1]);
-
-            } else {
-                this.checkSwitch(entry[0], entry[1]);
+            if (!this.validateFields(entry[0], entry[1])) {
+              valid = false;
             }
           }
         }
+        
+        return valid;
+
+      },
+
+      showModal(bool) { const show = bool ? document.getElementById("myModal").style.display = "block" : document.getElementById("modal").style.display = "none"; return show },
+
+      submitForm(event){
+        event.preventDefault();
+
+        const registerForm = document.getElementById("registerForm");
+        const f = new FormData(registerForm);
+
+        if (this.checkForm(f)){
+          console.log("form submitted")
+
+          const formData = new FormData();
+          const permission = f.get('permission') === null ? 'Nei' : 'Ja';
+
+          formData.append("entry.319811942", f.get('attendant_first_name'));
+          formData.append("entry.1492493618", f.get('attendant_last_name'));
+          formData.append("entry.2062468631", f.get('attendant_age'));
+          formData.append("entry.1754952157", f.get('attendant_gender'));
+          formData.append("entry.1117801700", f.get('guardian_last_name') + ", " + f.get('guardian_first_name'));
+          formData.append("entry.1000720745", f.get('guardian_phone'));
+          formData.append("entry.532607403" ,f.get('guardian_email'));
+          formData.append("entry.244621789", f.get('message'));
+          formData.append("entry.1956375263", permission);
+
+          const testurl = 'https://docs.google.com/forms/d/1XU-DbafvYGCYbWduEIHAioTq3j4X8h_GFf1BMGQc7bI/formResponse';
+
+          fetch(testurl, {
+            method: "POST",
+            cache: "no-cache",
+            mode: "no-cors",
+            redirect: "follow",
+            body: formData,
+            headers: {
+              'Content-Type': 'text',
+          },
+          })
+          .then(response => {
+            console.log(response); 
+            this.showModal(true)
+          })
+          .catch(error => console.log(error) );
+        }
+
       }
     },
   }
+
+
+
     
 </script>
 
@@ -344,16 +331,6 @@ header {
   padding: 3px 0;
 }
 
-nav ul li{
-  display: inline-block;
-}
-
-nav {
-  font-size: 11px;
-  margin: 15px 0;
-  margin-left: 15px;
-}
-
 hgroup {
   margin-top: 25px;
   margin-left: 15px;
@@ -370,7 +347,7 @@ h2 {
 }
 
 #registerForm {
-    margin: 25px 15px;
+  margin: 25px 15px;
 }
 
 .p-1 {
@@ -632,6 +609,48 @@ form div.form-heading:not(:first-of-type) {
 
 form .form-message .helper-text {
   margin-bottom: 25px;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 </style>
