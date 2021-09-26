@@ -105,15 +105,21 @@
     </form>
     <Footer />
 
-  <div id="myModal" class="modal">
+    <div id="confirmationDialog" class="dialog">
+      <div class="dialog-content">
+        <div class="dialog-header">
+          <p>Bekreftelse</p>
+          <span @click="showDialog(false)" class="close">&times;</span>
+        </div>
+        <div class="dialog-body">
+          <p>Registrering gjennomført!</p>
+        </div>
+        <div class="dialog-footer">
+          <NuxtLink class="button" to="/">OK</NuxtLink>
+        </div>
+      </div>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Registrering sendt!</p>
     </div>
-
-  </div>
   </div>
 
 </template>
@@ -251,7 +257,7 @@ import Footer from '../components/Footer.vue';
 
       },
 
-      showModal(bool) { const show = bool ? document.getElementById("myModal").style.display = "block" : document.getElementById("modal").style.display = "none"; return show },
+      showDialog(bool) { const show = bool ? document.getElementById("confirmationDialog").style.display = "block" : document.getElementById("confirmationDialog").style.display = "none"; return show },
 
       submitForm(event){
         event.preventDefault();
@@ -288,8 +294,7 @@ import Footer from '../components/Footer.vue';
           },
           })
           .then(response => {
-            console.log(response); 
-            this.showModal(true)
+            this.showDialog(true)
           })
           .catch(error => console.log(error) );
         }
@@ -611,39 +616,59 @@ form .form-message .helper-text {
   margin-bottom: 25px;
 }
 
-
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
+/* The Dialog (background) */
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999999999;
+  margin: 0;
+  padding: 0;
+  position: fixed;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: background-color 2s ease;
+  opacity: 1;
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.dialog-content {
+  color: black;
+  min-width: 10rem;
+  max-width: 18rem;
+  width: calc(100vw - 4rem);
+  height: auto;
+  background-color: white;
+  border-radius: 2px;
+  margin: 2rem;
+  box-shadow: 0 19px 38px rgb(0 0 0 / 12%), 0 15px 12px rgb(0 0 0 / 12%);
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.dialog-header {
+  background-color: #272e2b;
+  padding: 10px 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-header p {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dialog-body {
+  padding: 10px 15px 5px;
+}
+
+.dialog-footer {
+  padding: 5px 15px 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .close:hover,
