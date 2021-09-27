@@ -6,12 +6,12 @@
     <div>
 
     <h2>Kontakt oss</h2>
-    <p><Phone /> <a href="tel:+4795231298">+47 952 31 298 </a> </p>
-    <p> <Mail /> onedream@onedream.no </p> 
+    <p> <Phone /> <a href="tel:+4795231298">+47 952 31 298 </a> </p>
+    <p> <Mail /> <a  href="mailto:gardeskilf@gmail.com?subject=web | OneDreamFotballskole - bidra" target="_blank" rel="nofollow"> gardeskilf@gmail.com </a> </p> 
 
     <h3> Følg oss på sosiale medier</h3>
-    <p> <Facebook /> onedreamfotballskole </p> 
-    <p> <Instagram /> onedream.no </p>
+    <p> <Facebook /> <a href="https://www.facebook.com/onedreamfotballskole" target="blank" rel="nofollow">  onedreamfotballskole </a> </p> 
+    <p> <Instagram /> <a href="https://www.instagram.com/onedream.no/?hl=nb" target="blank" rel="nofollow"> onedream.no </a> </p>
 
     </div>
 
