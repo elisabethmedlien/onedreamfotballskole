@@ -9,10 +9,10 @@
 <style scoped>
 
 .home .logo {
-  width: 150px;
+  width: 40vw;
   position: absolute;
-  top: 25px;
-  left: 35px;
+  top: 2vw;
+  left: 10vw;
 }
 
 .register .logo {
@@ -20,6 +20,16 @@
   margin: 0 auto;
   display: block;
   margin-bottom: 0;
+}
+
+/* Desktop */
+@media only screen and (min-width: 900px) {
+
+  .home .logo {
+    width: 12vw;
+    min-width: 220px;
+    left: 5vw;
+  }
 }
 
 </style>

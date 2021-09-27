@@ -16,20 +16,20 @@ body {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 7vw;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 7vw;
 }
 
 h2 {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 26px;
+  font-size: 6vw;
+  font-weight: 600;
+  line-height: 7vw;
 }
 
 p {
-  font-size: 11px ;
-  line-height: 18px;
+  font-size: 2.5vw ;
+  line-height: 4vw;
 }
 
 .button-container {
@@ -39,20 +39,49 @@ p {
 button {
   background-color: #de175b;
   color: white;
-  padding: 5px 10px;
+  padding: 1vw 1.5vw 1.3vw;
 	cursor: pointer;
   border: none;
+  font-size: 3vw;
 }
 
 
 footer svg {
-  width: 20px !important;
+  width: 3vw !important;
   height: auto;
   fill: #db2965;
-  margin-right: 5px;
+  margin-right: 0.5vw;
 }
 
 a {
   color: #de175b;
   text-decoration: none;
+}
+
+/* Desktop */
+@media only screen and (min-width: 900px) {
+
+  button {
+    font-size: 1vw;
+    padding: 0.5vw 1vw 0.7vw;
+  }
+
+  h2 {
+    font-size: 2vw;
+    line-height: 3vw;
+  }
+
+  p {
+    font-size: 1vw;
+    line-height: 1.5vw;
+  }
+
+
+footer svg {
+  width: 1vw !important;
+  height: auto;
+  fill: #db2965;
+  margin-right: 0.5vw;
+}
+
 }

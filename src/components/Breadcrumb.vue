@@ -15,8 +15,8 @@ nav ul li {
 }
 
 nav {
-  font-size: 11px;
-  margin: 15px 0;
-  margin-left: 15px;
+  font-size: 2.5vw;
+  margin: 1vw 0;
+  margin-left: 1vw;
 }
 </style>

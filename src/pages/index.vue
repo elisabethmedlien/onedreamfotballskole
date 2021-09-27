@@ -15,7 +15,7 @@ export default {
     height: '5px'
   },
   head: {
-    title: 'Home page',
+    title: 'OneDream Fotballskole',
     meta: [
       {
         hid: 'description',

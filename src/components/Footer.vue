@@ -51,8 +51,9 @@ export default {
 
 
 <style scoped>
+
   footer {
-    padding: 15px;
+    padding: 3vw;
     bottom: 0;
     position: static;
     background-color: #262726;
@@ -61,50 +62,77 @@ export default {
 
   footer a {
     color: white;
-    border-bottom: 0.2px solid rgba(255,255,255,0.5);
-    padding-bottom: 2px;
+    border-bottom: 0.2vh solid rgba(255,255,255,0.5);
+    padding-bottom: 0.2vw;
   }
 
   h2 {
-    font-size: 16px;
-    margin: 15px 0;
+    font-size: 4.5vw;
+    margin: 1vw 0;
   }
 
   h3 {
-    font-size: 12px;
-    margin: 10px 0;
+    font-size: 3vw;
+    margin: 2vw 0;
   }
 
   p {
-    font-size: 11px;
-    line-height: 12px;
-    margin: 7px 0;
+    font-size: 2.5vw;
+    line-height: 4vw;
+    margin: 1.2vw 0;
   }
-
-  svg {
-    color: #de175b;
-    font-size: 16px;
-    vertical-align: middle;
-  }
-
 
   .cls-1 {
     fill:none;
     stroke:#000;
     stroke-linecap:round;
     stroke-linejoin:round;
-    stroke-width:2px;
-  }
-
-
-  .icons svg {
-    width: 45px !important;
+    stroke-width: 2px;
   }
 
   .copyright {
     border-top: 0.2px solid #ffffff20;
-    margin-top: 15px;
-    padding-top: 15px;
+    margin-top: 1vw;
+    padding-top: 1vw;
   }
+
+  /* Desktop */
+@media only screen and (min-width: 900px) {
+
+  footer {
+    padding: 3vw;
+  }
+
+  footer a {
+    border-bottom: 0.2vh solid rgba(255,255,255,0.5);
+    padding-bottom: 0.2vw;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+    margin: 1vw 0;
+  }
+
+  h3 {
+    font-size: 1vw;
+    margin: 2vw 0;
+  }
+
+  p {
+    font-size: 1vw;
+    line-height: 1.5vw;
+    margin: 1.2vw 0;
+  }
+
+  .cls-1 {
+    stroke-width: 2px;
+  }
+
+  .copyright {
+    border-top: 0.2px solid #ffffff20;
+    margin-top: 1vw;
+    padding-top: 1vw;
+  }
+}
 
 </style>

@@ -42,9 +42,8 @@ export default {
 }
 
 h2 {
-  font-size: 12px;
+  font-size: 2.5vw;
   font-weight: 400;
-  line-height: 26px;
 }
 
 .header-image {
@@ -66,6 +65,26 @@ button {
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%)
+}
+
+
+@media only screen and (min-width: 900px) {
+
+  .header-image {
+    height: 25vh;
+    min-height: 375px;
+  }
+
+  h1 {
+    font-size: 2.5vw;
+    line-height: 3vh;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+  }
+
+
 }
 
 </style>

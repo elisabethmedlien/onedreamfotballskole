@@ -7,7 +7,7 @@ export default {
   head: {
     title: 'onedreamfotballskole',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'nb'
     },
     meta: [
       { charset: 'utf-8' },

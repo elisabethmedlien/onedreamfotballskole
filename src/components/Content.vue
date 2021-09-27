@@ -53,18 +53,46 @@ export default {
 <style scoped>
 
 .content {
-  padding: 15px;
+  padding: 1vw 2vw;
   display: flex;
   flex-direction: column;
 }
 
 .box {
-  padding: 15px;
+  padding: 3vw;
   background-color: #e4e3e3f2;
-  margin: 5px 0;
+  margin: 1.5vw 0;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 3vw;
 }
+
+@media only screen and (min-width: 900px) {
+
+
+  .content {
+    padding: 1vw 2vw;
+    flex-direction: row;
+  }
+
+  .box {
+    padding: 1vw;
+    width: 50vw;
+  }
+
+  .box:first-of-type {
+    margin-right: 1vw;
+  }
+
+  .box:last-of-type {
+    margin-left: 1vw;
+  }
+
+  h2 {
+    font-size: 1.5vw;
+  }
+}
+
+
 </style>

@@ -16,12 +16,21 @@ export default {
 <style>
 
 img {
-  width: 100px;
+  width: 20vw;
 }
 
 .sponsors {
-  padding: 15px;
+  padding: 2vw;
   padding-top: 0;
+
+}
+
+/* Desktop */
+@media only screen and (min-width: 900px) {
+
+  img {
+    width: 5vw
+  }
 
 }
 
