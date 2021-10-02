@@ -2,7 +2,7 @@
 
   <div class="header">
     
-    <img class="header-image" alt="fotball bane" src="~/assets/header.jpg" />
+    <img class="header-image" alt="fotballbane" src="~/assets/header.jpg" />
     <Logo />
 
     <hgroup>
@@ -10,9 +10,7 @@
       <h2>- som verktøy for integrering</h2>
     </hgroup>
 
-    <NuxtLink to="/register">
-        <button> Registrer deg! </button>
-    </NuxtLink>
+    <NuxtLink to="/register" class="button"> Meld deg på! </NuxtLink>
 
   </div>
 
@@ -60,7 +58,7 @@ hgroup {
   transform: translate(-50%, -50%);
 }
 
-button {
+button, .button {
   top: 85%;
   left: 50%;
   position: absolute;
@@ -72,7 +70,11 @@ button {
 
   .header-image {
     height: 25vh;
-    min-height: 375px;
+    min-height: 200px;
+    filter: hue-rotate(75deg);
+    object-fit: cover;
+    object-position: -50px 69%;
+    transform: scale(1.2) rotate(180deg);
   }
 
   h1 {
@@ -82,6 +84,14 @@ button {
 
   h2 {
     font-size: 1.5vw;
+  }
+
+  hgroup {
+    top: 40%;
+  }
+
+  button, .button {
+    top: 65%;
   }
 
 

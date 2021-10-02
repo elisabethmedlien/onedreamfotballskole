@@ -109,7 +109,7 @@
       <div class="dialog-content">
         <div class="dialog-header">
           <p>Bekreftelse</p>
-          <span @click="showDialog(false)" class="close">&times;</span>
+          <span class="close" @click="showDialog(false)">&times;</span>
         </div>
         <div class="dialog-body">
           <p>Registrering gjennomført!</p>
@@ -138,12 +138,21 @@ import Footer from '../components/Footer.vue';
       Footer,
       Logo
     },
+    head: {
+      meta: [
+        { hid: 'description', name: 'description', content: `Meld deg på OneDream Fotballskole! Arrangementet vil foregå i Stange høstferien 2021 på Stange. Det er gratis å delta` },
 
-  
-    data() {
+        // twitter meta
+        { hid: "twitter:title", name: "twitter:title", content: "OneDream Fotballskole | Påmelding" },
+        { hid: "twitter:description", name: "twitter:description", content: "Meld deg på OneDream Fotballskole! Arrangementet vil foregå i Stange høstferien 2021 på Stange. Det er gratis å delta" },
 
-      return { }
-    }, 
+        // open graph -> facebook
+        { hid: "og:title", property: "og:title", content: "OneDream Fotballskole | Påmelding" },
+        { hid: "og:description", property: "og:description", content: "Meld deg på OneDream Fotballskole! Arrangementet vil foregå i Stange høstferien 2021 på Stange. Det er gratis å delta" },
+        { hid: "og:url", property: "og:url", content: "https://onedreamfotballskole.no/register" },
+      ],
+      title: 'OneDream Fotballskole | Påmelding',
+  },
 
     methods: {
 
@@ -204,24 +213,24 @@ import Footer from '../components/Footer.vue';
 
             if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false }
             else if (this.hasNumber(value)) { this.errorMessage(id, "tall i navn"); valid=false } 
-            else if (this.hasSpecialChar(value)) { this.errorMessage(id, "spesielle karakterer"); valid=false} 
-            else { this.removeErrorMessage(id)}
+            else if (this.hasSpecialChar(value)) { this.errorMessage(id, "spesielle karakterer"); valid=false } 
+            else { this.removeErrorMessage(id) }
             break;
 
           case "attendant_age":
 
             if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false }
-            else if (!this.has4Digits(value)) { this.errorMessage(id, "må være 4 sifre"); valid=false}
-            else if (this.isTooYoung(this.getAge(value), 4)) { this.errorMessage(id, "Deltakeren er for ung til å delta"); valid=false}
-            else if (this.isTooOld(this.getAge(value), 20)) { this.errorMessage(id, "Deltakeren er for gammel til å delta"); valid=false }
-            else { this.removeErrorMessage(id)}
+            else if (!this.has4Digits(value)) { this.errorMessage(id, "må være 4 sifre"); valid=false }
+            else if (this.isTooYoung(this.getAge(value), 9)) { this.errorMessage(id, "Deltakeren må være mellom 9 og 13 år for å delta"); valid=false }
+            else if (this.isTooOld(this.getAge(value), 14)) { this.errorMessage(id, "Deltakeren må være mellom 9 og 13 år for å delta"); valid=false }
+            else { this.removeErrorMessage(id) }
             break;
 
           case "guardian_phone":
 
-            if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false}
-            else if (!this.has8Digits(value)) { this.errorMessage(id, "telefonnummer må være 8 sifre"); valid=false} 
-            else { this.removeErrorMessage(id);}
+            if (this.isRequired(id) && this.isEmpty(value)) { this.errorMessage(id, "Feltet kan ikke være tomt"); valid=false }
+            else if (!this.has8Digits(value)) { this.errorMessage(id, "telefonnummer må være 8 sifre"); valid=false } 
+            else { this.removeErrorMessage(id) }
             break;
 
           case "guardian_email":
@@ -266,22 +275,23 @@ import Footer from '../components/Footer.vue';
         const f = new FormData(registerForm);
 
         if (this.checkForm(f)){
-          console.log("form submitted")
+          // console.log("form submitted")
 
           const formData = new FormData();
           const permission = f.get('permission') === null ? 'Nei' : 'Ja';
 
-          formData.append("entry.319811942", f.get('attendant_first_name'));
-          formData.append("entry.1492493618", f.get('attendant_last_name'));
-          formData.append("entry.2062468631", f.get('attendant_age'));
-          formData.append("entry.1754952157", f.get('attendant_gender'));
-          formData.append("entry.1117801700", f.get('guardian_last_name') + ", " + f.get('guardian_first_name'));
-          formData.append("entry.1000720745", f.get('guardian_phone'));
-          formData.append("entry.532607403" ,f.get('guardian_email'));
-          formData.append("entry.244621789", f.get('message'));
-          formData.append("entry.1956375263", permission);
+          formData.append("entry.1533450770", f.get('attendant_first_name'));
+          formData.append("entry.506253885", f.get('attendant_last_name'));
+          formData.append("entry.507076156", f.get('attendant_age'));
 
-          const testurl = 'https://docs.google.com/forms/d/1XU-DbafvYGCYbWduEIHAioTq3j4X8h_GFf1BMGQc7bI/formResponse';
+          formData.append("entry.774796922", f.get('attendant_gender'));
+          formData.append("entry.87532478", f.get('guardian_last_name') + ", " + f.get('guardian_first_name'));
+          formData.append("entry.1842396367", f.get('guardian_phone'));
+          formData.append("entry.476570549" ,f.get('guardian_email'));
+          formData.append("entry.627831958", f.get('message'));
+          formData.append("entry.1616343650", permission);
+
+          const testurl = 'https://docs.google.com/forms/d/17yS1K7Bh4_6lrKPXjtbcE0yE2lE30FYfl0joXdfghB8/formResponse';
 
           fetch(testurl, {
             method: "POST",
@@ -296,9 +306,10 @@ import Footer from '../components/Footer.vue';
           .then(response => {
             this.showDialog(true)
           })
-          .catch(error => console.log(error) );
+          // .catch(error => 
+          //   console.log(error) 
+          // );
         }
-
       }
     },
   }
@@ -338,21 +349,22 @@ header {
 
 hgroup {
   margin-top: 25px;
-  margin-left: 15px;
+  margin-left: 2vw;
 }
 
 h1 {
   margin-bottom: 5px;
+  font-size: 6vw;
 }
 
 h2 {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 4vw;
   line-height: 20px;
 }
 
 #registerForm {
-  margin: 25px 15px;
+  margin: 25px 2vw;
 }
 
 .p-1 {
@@ -367,7 +379,7 @@ h2 {
 form {
   margin-top: 45px;
   padding: 10px 15px;
-  background-color: #e4e3e3f2;
+  background-color: white;
 }
 
 form small {
@@ -676,6 +688,39 @@ form .form-message .helper-text {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+@media only screen and (min-width: 900px) {
+
+  h1 {
+    font-size: 3vw;
+    line-height: 2.5vw;
+    margin-bottom: 1.7vw;
+  }
+
+  h2 {
+    font-size: 2vw;
+  }
+
+  hgroup {
+    margin-left: 5vw;
+  }
+
+  #registerForm {
+    margin: 2vw 5vw;
+  }
+
+  header {
+  padding: 1.5vw 0;
+}
+
+form {
+  padding: 1vw 2vw;
+}
+
+
+
 }
 
 </style>

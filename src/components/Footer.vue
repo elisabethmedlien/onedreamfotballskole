@@ -5,18 +5,22 @@
 
     <div>
 
-    <h2>Kontakt oss</h2>
-    <p> <Phone /> <a href="tel:+4795231298">+47 952 31 298 </a> </p>
-    <p> <Mail /> <a  href="mailto:gardeskilf@gmail.com?subject=web | OneDreamFotballskole - bidra" target="_blank" rel="nofollow"> gardeskilf@gmail.com </a> </p> 
+      <div>
+        <h2>Kontakt oss</h2>
+        <p class="tel"> <Phone /> <a href="tel:+4795231298">+47 952 31 298 </a> </p>
+        <p> <Mail /> <a  href="mailto:gardeskilf@gmail.com?subject=web:OneDreamFotballskole-kontakt" target="_blank" rel="nofollow"> Mail </a> </p> 
+      </div>
 
-    <h3> Følg oss på sosiale medier</h3>
-    <p> <Facebook /> <a href="https://www.facebook.com/onedreamfotballskole" target="blank" rel="nofollow">  onedreamfotballskole </a> </p> 
-    <p> <Instagram /> <a href="https://www.instagram.com/onedream.no/?hl=nb" target="blank" rel="nofollow"> onedream.no </a> </p>
+      <div>
+        <h3> Følg oss på sosiale medier</h3>
+        <p> <Facebook /> <a href="https://www.facebook.com/onedreamfotballskole" target="blank" rel="nofollow">  Facebook </a> </p> 
+        <p> <Instagram /> <a href="https://www.instagram.com/onedream.no/?hl=nb" target="blank" rel="nofollow"> Instagram </a> </p>
+      </div>
 
     </div>
 
     <div class="copyright">
-      <p> &copy; <span>{{new Date().getFullYear()}} </span> OneDream Fotballskole </p>
+      <p> Copyright &copy; <span>{{new Date().getFullYear()}} </span> OneDream Fotballskole </p>
     </div>
 
   </footer>
@@ -54,6 +58,7 @@ export default {
 
   footer {
     padding: 3vw;
+    padding-bottom: 1vw;
     bottom: 0;
     position: static;
     background-color: #262726;
@@ -64,6 +69,10 @@ export default {
     color: white;
     border-bottom: 0.2vh solid rgba(255,255,255,0.5);
     padding-bottom: 0.2vw;
+  }
+
+  footer>div:first-of-type {
+    padding-bottom: 1vw;
   }
 
   h2 {
@@ -96,16 +105,37 @@ export default {
     padding-top: 1vw;
   }
 
-  /* Desktop */
+/* Desktop */
 @media only screen and (min-width: 900px) {
 
   footer {
-    padding: 3vw;
+    padding: 3vw 5vw;
+    min-height: 20vh;
+    font-family: Whyte, sans-serif;
   }
 
   footer a {
-    border-bottom: 0.2vh solid rgba(255,255,255,0.5);
+    border-bottom: 0.2vh solid rgba(255,255,255,0.2);
     padding-bottom: 0.2vw;
+  }
+
+  footer a:hover {
+    border-bottom-color: #db2965;
+  }
+
+  footer>div:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  footer>div:first-of-type div {
+    margin-right: 3.5vw;
+  }
+
+  footer>div:first-of-type p {
+    display: flex;
+    
   }
 
   h2 {
@@ -132,6 +162,11 @@ export default {
     border-top: 0.2px solid #ffffff20;
     margin-top: 1vw;
     padding-top: 1vw;
+  }
+
+  .tel a {
+    border-bottom: none;
+    pointer-events: none;
   }
 }
 

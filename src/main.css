@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  background-color: #c3c0c0a3;
+  background-color: rgb(245 245 245 / 64%);
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,10 +36,10 @@ p {
   text-align: right;
 }
 
-button {
+button, .button {
   background-color: #de175b;
   color: white;
-  padding: 1vw 1.5vw 1.3vw;
+  padding: 1vh 1.5vw 1.3vh;
 	cursor: pointer;
   border: none;
   font-size: 3vw;
@@ -50,7 +50,7 @@ footer svg {
   width: 3vw !important;
   height: auto;
   fill: #db2965;
-  margin-right: 0.5vw;
+  margin-right: 2vw;
 }
 
 a {
@@ -61,13 +61,13 @@ a {
 /* Desktop */
 @media only screen and (min-width: 900px) {
 
-  button {
-    font-size: 1vw;
-    padding: 0.5vw 1vw 0.7vw;
+  button, .button {
+    font-size: 1.5vw;
+    padding: 0.5vh 1vw 0.5vh;
   }
 
   h2 {
-    font-size: 2vw;
+    font-size: 3vw;
     line-height: 3vw;
   }
 
@@ -76,12 +76,10 @@ a {
     line-height: 1.5vw;
   }
 
+  footer svg {
+    width: 1vw !important;
+    margin-right: 1vw;
 
-footer svg {
-  width: 1vw !important;
-  height: auto;
-  fill: #db2965;
-  margin-right: 0.5vw;
-}
+  }
 
 }

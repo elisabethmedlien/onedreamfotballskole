@@ -16,7 +16,16 @@ nav ul li {
 
 nav {
   font-size: 2.5vw;
-  margin: 1vw 0;
-  margin-left: 1vw;
+  margin: 3vw 0;
+  margin-left: 2vw;
+}
+
+@media only screen and (min-width: 900px) {
+
+  nav {
+    font-size: 1vw;
+    margin-left: 5vw;
+  }
+
 }
 </style>

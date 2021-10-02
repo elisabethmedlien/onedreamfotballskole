@@ -1,10 +1,9 @@
 <template>
   <div class="intro">
     <h2> Hva Vi Gjør<span>.</span> </h2>
-    <hr />
     <p> 
       OneDream Fotballskole skal gi barn en minneverdig opplevelse. 
-      Et tilbud i kampen mot å jevne ut sosiale ulikheter, og for å skape en fremtidig 
+      Fotballskolen er et tilbud i kampen for å jevne ut sosiale ulikheter, og for å skape en fremtidig 
       økning i aktivitet blant barn i et trygt og utviklende miljø.
     </p>
   </div>
@@ -15,14 +14,7 @@
 
 .intro {
   text-align: center;
-  padding: 0.5vw 2vw;
-}
-
-hr {
-  background-color: black; 
-  height: 0.1vw; 
-  border: 0;
-  margin: 0.5vw 0;
+  padding: 2.5vw 2vw;
 }
 
 p {
@@ -40,19 +32,16 @@ h2 {
 }
 
 @media only screen and (min-width: 900px) {
-p {
-  font-size: 20px;
-  margin-top: 0.5vw;
-  line-height: 2.5vw;
-}
 
-hr {
-  height: 0; 
-  border: 0;
-  margin: 0;
-}
+  p {
+    font-size: 1.5vw;
+    margin-top: 0.5vw;
+    line-height: 2.5vw;
+  }
 
-
+  .intro {
+    padding: 2vw 5vw 1.5vw;
+  }
 
 }
 

@@ -1,7 +1,7 @@
 <template>
 
   <NuxtLink to="/">
-    <img class="logo" alt="logo" src="~/assets/logo.png" />
+    <img class="logo" alt="OneDream logo" src="~/assets/logo.png" />
   </NuxtLink>
   
 </template>
@@ -29,6 +29,12 @@
     width: 12vw;
     min-width: 220px;
     left: 5vw;
+  }
+
+
+  .register .logo {
+    width: 10vw;
+    margin-bottom: 0;
   }
 }
 

@@ -12,8 +12,10 @@
     "lint": "npm run lint:js && npm run lint:style"
   },
   "dependencies": {
+    "@nuxtjs/google-gtag": "^1.0.4",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
+    "vue-gtag": "^1.16.1",
     "vue-social-sharing": "^3.0.8",
     "vue-socialmedia-share": "^1.0.1"
   },
